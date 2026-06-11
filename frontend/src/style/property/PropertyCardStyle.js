@@ -1,10 +1,10 @@
 export const propertyCardStyles = {
   // Card container
-  card: "fade-in group flex flex-col bg-white rounded-[1.25rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] border border-[#e2e8f0] relative w-full hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,0,0,0.1)] max-sm:max-w-[420px] max-sm:mx-auto",
+  card: "fade-in group  max-w-[510px] flex flex-col bg-white rounded-[1.25rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] border border-[#e2e8f0] relative w-full hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,0,0,0.1)] max-sm:max-w-[420px] max-sm:mx-auto",
   link: "no-underline text-inherit flex flex-col w-full",
 
   // Image section
-  imageSection: "relative h-[220px] overflow-hidden shrink-0",
+  imageSection: "relative bg-[#f1f5f9]  h-[220px] overflow-hidden shrink-0",
   image: "w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105",
   topBadges: "absolute top-4 left-4 right-4 flex justify-between items-center z-10",
   badgesLeft: "flex gap-2",

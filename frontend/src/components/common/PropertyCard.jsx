@@ -53,6 +53,10 @@ const PropertyCard = ({
           <img
             src={property.images[0]}
             className={s.image}
+            onError={(e)=>{
+              e.target.onerror = null;
+              e.target.src =  "https://placehold.co/600x400/e2e8f0/94a3b8?text=No+Image";
+            }}
           />
 
           {/* Top Badges */}
@@ -152,7 +156,7 @@ const PropertyCard = ({
                     {property.bathrooms ||
                       Math.max(1, parseInt(property.bhk) - 1 || 0)}
                   </div>
-                  <div className={s.specLabel}>Baths</div>
+                  <div className={s.specLabel}>Bathrooms</div>
                 </div>
                 <div className={s.specItem}>
                   <div className={s.specIcon}>

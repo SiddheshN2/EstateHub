@@ -32,17 +32,19 @@ export const featureStyles = {
     "w-20 h-20 bg-primary-light text-primary rounded-[2rem] flex items-center justify-center mx-auto mt-4 mb-8",
   processCardTitle: "text-[1.5rem] mb-4 font-bold",
   processCardDesc: "text-text-muted leading-[1.7]",
-  featuredSection: "py-24 bg-bg-alt",
-  featuredHeader: "text-center mb-16",
-  featuredBadge: "badge bg-primary-light text-primary mb-4 inline-block",
-  featuredTitle: "text-5xl mb-6 max-sm:text-4xl font-extrabold text-text-main",
-  featuredSubtitle: "text-text-muted max-w-[600px] mx-auto text-lg pt-1 pb-1",
   loadingContainer: "flex justify-center items-center py-20 min-h-[400px]",
   loader:
     "loader w-10 h-10 border-4 border-solid border-secondary border-t-primary rounded-full animate-spin mx-auto",
   errorContainer: "text-center py-20 text-red-500 min-h-[300px]",
-  propertiesGrid:
-    "grid px-4 gap-8 grid-cols-[repeat(auto-fill,minmax(280px,1fr))] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3",
-  discoverButtonContainer: "text-center mt-20",
-  discoverButton: "btn btn-primary py-4 px-12 rounded-3xl",
+  featuredSection: "py-24 bg-[#f8fafc]",
+  featuredHeader: "text-center mb-16",
+  featuredBadge:
+    "inline-block px-4 py-1.5 rounded-full bg-blue-50 text-primary text-xs font-bold uppercase tracking-widest mb-4",
+  featuredTitle: "text-4xl md:text-5xl font-extrabold text-[#0f172a] mb-4",
+  featuredSubtitle:
+    "text-[#64748b] max-w-[560px] mx-auto text-lg leading-relaxed",
+  propertiesGrid: "grid gap-7 px-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+  discoverButtonContainer: "text-center mt-16",
+  discoverButton:
+    "inline-flex items-center gap-2 btn btn-primary py-4 px-12 rounded-full text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all",
 };
