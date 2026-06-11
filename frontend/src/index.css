@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #3b82f6;
+    --color-primary-light: #dbeafe;  /* light blue */
+    --color-primary-dark: #1d4ed8;   /* dark blue */
+    --color-secondary: #f0f9ff;      /* soft blue background */
+    --color-accent: #f59e0b;         /* keep gold accent */
+    --color-border: #e5e7eb;
+    --shadow-card: 
+        0 10px 20px -5px rgba(30,64,175,0.08),
+        0 4px 10px -2px rgba(30,64,175,0.05);
+}
+
+@layer base {
+    :root {
+        --primary: #3b82f6;
+        --primary-light: #dbeafe;
+        --primary-dark: #1d4ed8;
+        --secondary: #f0f9ff;
+        --accent: #f59e0b;
+        --text-main: #111827;
+        --text-muted: #64748b;
+        --bg-main: #ffffff;
+        --bg-alt: #f8fafc;
+        --border-color: #e5e7eb;
+        --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --glass-bg: rgba(255, 255, 255, 0.85);
+        --glass-border: rgba(255, 255, 255, 0.6);
+        --card-padding: 2.5rem;
+    }
+
+    * {
+        @apply m-0 p-0 box-border;
+    }
+
+    body {
+        @apply font-sans text-[#111827] bg-[#ffffff] leading-relaxed antialiased overflow-x-hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-bold leading-tight;
+    }
+
+    a {
+        @apply no-underline text-inherit;
+    }
+
+    ul {
+        @apply list-none;
+    }
+
+    /* Hide browser's default password reveal button (Edge) */
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+        display: none;
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-[1280px] mx-auto px-8;
+    }
+
+    .glass {
+        @apply bg-white/80 backdrop-blur-[12px] border border-white/30;
+    }
+
+    .text-gradient {
+        @apply bg-gradient-to-br from-primary to-primary-dark bg-clip-text text-transparent;
+    }
+
+    /* Buttons */
+    .btn {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold cursor-pointer transition-all duration-300 border-none text-[15px] gap-2;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-white hover:bg-primary-dark hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/25;
+    }
+
+    .btn-outline {
+        @apply bg-transparent border border-border text-[#111827] hover:bg-[#f9fafb] hover:border-[#111827] hover:-translate-y-0.5;
+    }
+
+    /* Layouts */
+    .seller-layout {
+        @apply flex min-h-screen bg-[#f9fafb];
+    }
+
+    .seller-content {
+        @apply flex-1 ml-[260px] p-12 min-h-screen;
+    }
+
+    .dashboard-layout {
+        @apply flex min-h-screen bg-[#f8fafc] overflow-x-hidden relative;
+    }
+
+    .dashboard-main {
+        @apply flex-1 flex flex-col ml-[260px] min-w-0 transition-all duration-300 overflow-x-hidden w-full lg:ml-0;
+    }
+
+    .dashboard-content {
+        @apply p-10 max-w-[1600px] w-full box-border flex flex-col;
+    }
+
+    .dashboard-mobile-header {
+        @apply !hidden;
+    }
+
+    /* Cards */
+    .card-premium {
+        @apply bg-white rounded-3xl border border-border transition-all duration-[0.4s] overflow-hidden hover:-translate-y-2.5 hover:shadow-card;
+    }
+
+    /* Badges */
+    .badge {
+        @apply px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.025em];
+    }
+
+    .badge-sale {
+        @apply bg-[#dcfce7] text-[#166534];
+    }
+
+    .badge-rent {
+        @apply bg-[#dbeafe] text-[#1e40af];
+    }
+
+
+
+    /* Loader */
+    .loader-container {
+        @apply flex justify-center items-center min-h-[400px] w-full;
+    }
+
+    .loader-full-page {
+        @apply fixed inset-0 bg-white/80 z-[9999] flex justify-center items-center;
+    }
+
+    .loader {
+        @apply w-12 h-12 border-[5px] border-primary-light border-b-primary rounded-full inline-block box-border animate-[rotation_1s_linear_infinite];
+    }
+
+    /* Sidebar Navigation */
+    .sidebar-link {
+        @apply flex items-center gap-4 px-6 py-4 rounded-xl font-semibold text-[15px] text-[#64748b] transition-all duration-200 hover:bg-[#f1f5f9] hover:text-primary hover:translate-x-1;
+    }
+
+    .sidebar-link.active {
+        @apply bg-primary-light text-primary;
+        border-right: 3px solid var(--primary);
+    }
+}
+
+@layer utilities {
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .fade-in {
+        @apply animate-[fadeIn_0.8s_ease-out_forwards];
+    }
+
+    @media (max-width: 1024px) {
+        .dashboard-sidebar {
+            @apply -translate-x-full;
+        }
+
+        .dashboard-sidebar.open {
+            @apply translate-x-0;
+        }
+
+        .sidebar-backdrop.show {
+            @apply !block;
+        }
+
+        .dashboard-main {
+            @apply ml-0;
+        }
+
+        .dashboard-content {
+            @apply p-6;
+        }
+
+        .dashboard-mobile-header {
+            @apply !flex;
+        }
+
+        .mobile-title {
+            @apply !block;
+        }
+
+        .hide-tablet {
+            @apply !hidden;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .dashboard-content {
+            @apply p-4;
+        }
+
+        :root {
+            --card-padding: 1.5rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .container {
+            @apply px-4;
+        }
+
+        .hide-mobile {
+            @apply !hidden;
+        }
+
+        .show-mobile {
+            @apply block;
+        }
+    }
+
+    @media (max-width: 480px) {
+        :root {
+            --card-padding: 1rem;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.demo-card {
+    margin-top: 24px;
+    padding: 18px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: #f8fafc;
+}
+
+.demo-title {
+    font-size: px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.demo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.demo-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 14px 0;
+}
+
+.demo-badge {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.demo-badge.buyer {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.demo-badge.seller {
+    background: #dcfce7;
+    color: #166534;
+}
